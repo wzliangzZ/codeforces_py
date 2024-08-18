@@ -16,7 +16,10 @@ show = lambda arr: print(" ".join(map(str, arr)))
 
 def main():
     for _ in range(int(*read())):
-        n, = read()
+        a, b = read(), read()
+        # 每有一个端点不同就得多关一扇门，少于等于一个端点一样就只关一闪门
+        print(max(min(b[1], a[1]) - max(a[0], b[0]) + (a[1] != b[1]) + (a[0] != b[0]), 1))
+
 
 
 

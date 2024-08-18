@@ -17,7 +17,10 @@ show = lambda arr: print(" ".join(map(str, arr)))
 def main():
     for _ in range(int(*read())):
         n, = read()
-
+        arr = read()
+        if n > 2: print('NO')
+        elif abs(arr[0] - arr[1]) > 1: print('YES')
+        else: print('NO')
 
 
 main()
