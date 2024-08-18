@@ -5,7 +5,7 @@ from functools import cmp_to_key as ctk, lru_cache
 from collections import defaultdict, deque, Counter
 
 readline = sys.stdin.readline
-read = lambda : list(map(int, readline().split()))
+read = lambda : map(int, readline().split())
 readstr = lambda : readline().rstrip()
 
 # dfv 只能为基本数据类型
@@ -15,8 +15,8 @@ show = lambda arr: print(" ".join(map(str, arr)))
 
 
 def main():
-    for _ in range(int(*read())):
-        n, = read()
+    for _ in range(*read()):
+        n, m = read()
 
 
 
