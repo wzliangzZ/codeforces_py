@@ -17,7 +17,26 @@ show = lambda arr: print(" ".join(map(str, arr)))
 def main():
     for _ in range(*read()):
         n, = read()
+        arr = list(read())
         
+        m, = read()
+        for j in range(m):
+            s = readstr()
+            if len(s) != n:
+                print('NO')
+                continue
+            res = 'YES'
+            ctn, ntc = {}, {}
+            for num, c in zip(arr, s):
+                if num in ntc and ntc[num] != c:
+                    res = 'NO'
+                    break
+                elif c in ctn and ctn[c] != num:
+                    res = 'NO'
+                    break
+                ctn[c] = num
+                ntc[num] = c
+            print(res)
 
 
 main()

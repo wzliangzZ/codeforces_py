@@ -17,7 +17,19 @@ show = lambda arr: print(" ".join(map(str, arr)))
 def main():
     for _ in range(*read()):
         n, = read()
-        
+        arr = list(read())
+        l = r = arr[0]
+        res = 'YES'
+        for i in range(1, n):
+            if arr[i] == r + 1:
+                r += 1
+            elif arr[i] == l - 1:
+                l -= 1
+            else:
+                res = 'NO'
+                break
+        print(res)
+
 
 
 main()
