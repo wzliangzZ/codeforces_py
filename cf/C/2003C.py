@@ -17,7 +17,24 @@ show = lambda arr: print("".join(map(str, arr)))
 def main():
     for _ in range(*read()):
         n, = read()
-        
+        s = readstr()
+        res = [''] * n
+        dfd = defaultdict(int)
+        for c in s:
+            dfd[ord(c) - ord('a')] -= 1
+        h = [(y, x) for (x, y) in dfd.items()]
+        h.sort()
+        i, j = 0, 0
+        for __ in range(n):
+            (cnt, val) = h[i]
+            res[j] = chr(ord('a') + val)
+            if cnt + 1 != 0:
+                h[i] = (cnt + 1, val)
+            else:
+                i += 1
+            j += 2
+            if j >= n: j = 1
+        show(res)
 
 
 main()
